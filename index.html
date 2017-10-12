@@ -33,7 +33,7 @@
           <div class="ui attached fluid segment">
             <p>
               Make sure all configs are set.
-              The following properties must be defined in the URL.
+              <!--The following properties must be defined in the URL.-->
             </p>
             <ul>
               <li>gitlab</li>
@@ -52,10 +52,10 @@
       <div class="row builds">
         <div class="sixteen wide column">
           <div class="ui stackable cards">
-            <div v-for="build in builds" class="card {{build.status}}">
+            <div v-for="build in sortedBuilds" class="card {{build.status}}">
               <div class="content">
                 <div class="header project-name">
-                  <a target="_blank" href="https://{{gitlab}}/{{build.project_path}}">{{ build.project }} ({{ build.branch }})</a>
+                  <a target="_blank" href="https://{{gitlab}}/{{build.project_path}}">{{ build.project }} / {{ build.branch }}</a>
                 </div>
                 <div class="meta">{{ build.author }}</div>
                 <div class="description">
@@ -70,7 +70,7 @@
                 </span>
                 <span class="right floated calendar">
                   <i class="calendar icon"></i>
-                  {{ build.started_at }}
+                  {{ build.startedFromNow }}
                 </span>
               </div>
            </div>
